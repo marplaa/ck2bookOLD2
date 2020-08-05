@@ -163,12 +163,16 @@ export class RecipesService {
     this.save();
   }
 
-  requestCompilation(): void {
+  requestCompilation(context, callback): void {
     const url = 'http://localhost:4200/compile/toPdf';
     // const renderer = new Renderer();
     const renderedBook = this.renderer.render(this.recipes);
     this.http.post<CompilationResponse>(url , {content: renderedBook.content, images: renderedBook.images})
-      .subscribe(data => console.log(data.url));
+      .subscribe(data => callback(context, data));
+  }
+
+  bookReady(data): void {
+    console.log(data.url);
   }
 
   render(): RenderedBook {

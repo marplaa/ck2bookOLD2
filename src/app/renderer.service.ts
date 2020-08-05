@@ -69,12 +69,26 @@ export class RendererService {
           renderedItem = renderedItem.replace('{{bg-image}}', '');
         }
 
-
-        // check if image is already in list
-        if (this.imageList.filter(img => img[0] === item.image).length === 0) {
-          const img: Image = {url: item.image, sizes: [{size: twoColTemplate.chapterImageRes, filter: {}}, {size: twoColTemplate.chapterImageRes, filter: {color: 0.5, brightness: 3, blur: 15}}] };
-          this.imageList.push(img);
+        let sizes;
+        if (item.options.recipeBackgrounds === 'CHAPTER') {
+          sizes = [{size: twoColTemplate.chapterImageRes, filter: {}},
+            {size: twoColTemplate.chapterImageRes, filter: {color: 0.5, brightness: 3, blur: 15}}] ;
+        } else {
+          sizes = [{size: twoColTemplate.chapterImageRes, filter: {}}];
         }
+        let img: Image;
+        // check if image is already in list
+        const imageInList = this.imageList.filter(image => image.url === item.image);
+        if (imageInList.length === 0) {
+          img = { url: item.image, sizes };
+          this.imageList.push(img);
+        } else {
+          // is already in list
+          if (sizes.length > imageInList[0].sizes.length) {
+            imageInList[0].sizes = sizes;
+          }
+        }
+
 
         if (item.children.length > 0) {
           output += renderedItem.replace('{{children}}', this.renderNode(item));
@@ -103,7 +117,7 @@ export class RendererService {
         }
 
 
-        if (this.imageList.filter(img => img[0] === item.image).length === 0) {
+        if (this.imageList.filter(img => img.url === item.image).length === 0) {
           const img: Image = {
             url: item.image, sizes: [{size: twoColTemplate.recipeImageRes, filter: {}},
               {size: twoColTemplate.recipeBgImageRes, filter: {color: 0.5, brightness: 3, blur: 15}}]
