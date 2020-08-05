@@ -34,6 +34,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { DialogAddChapterComponent } from './dialog-add-chapter/dialog-add-chapter.component';
 import { DialogAddRecipeComponent } from './dialog-add-recipe/dialog-add-recipe.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { DialogDownloadBookComponent } from './dialog-download-book/dialog-download-book.component';
 
 
 
@@ -54,6 +55,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     DialogAddChapterComponent,
 
     DialogAddRecipeComponent,
+
+    DialogDownloadBookComponent,
   ],
   imports: [
     BrowserModule,

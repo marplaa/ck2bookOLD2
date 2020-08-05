@@ -11,6 +11,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {DialogDeleteComponent} from '../dialog-delete/dialog-delete.component';
 import {DialogAddRecipeComponent} from '../dialog-add-recipe/dialog-add-recipe.component';
 import {DialogAddChapterComponent} from '../dialog-add-chapter/dialog-add-chapter.component';
+import {DialogDownloadBookComponent} from '../dialog-download-book/dialog-download-book.component';
 
 @Component({
   selector: 'app-recipes-list',
@@ -81,6 +82,15 @@ export class RecipesListComponent implements OnInit {
     });
   }
 
+  openDownloadBookDialog(context, data): void {
+    const dialogRef = context.dialog.open(DialogDownloadBookComponent, {
+      data
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
+  }
+
   openAddChapterDialog(chapter: string): void {
     this.chapter = this.recipesService.getNodeById(chapter);
 
@@ -109,16 +119,8 @@ export class RecipesListComponent implements OnInit {
 
   render(): void {
     // const renderedBook = this.recipesService.render();
-    this.recipesService.requestCompilation();
+    this.recipesService.requestCompilation(this, this.openDownloadBookDialog);
 
   }
 
-  /*private makeIngredientsArray(recipe: Recipe) {
-    let ingredients: [];
-    let ingredient;
-    for (ingredient in recipe.ingredients) {
-
-
-    }
-  }*/
 }
