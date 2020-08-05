@@ -107,8 +107,16 @@
     </div>
 
     <div class="col-4">
-      <div class="sticky-top">
-        <app-recipe-preview *ngIf="recipe" [recipe]="recipe"></app-recipe-preview>
+      <div *ngIf="loading">
+        <h2>Erstelle Buch...</h2>
+        <mat-spinner style="margin-left: auto; margin-right: auto"></mat-spinner>
+        <p>
+          Erstelle dein Buch. Das kann einige Minuten dauern...
+        </p>
+
+      </div>
+      <div class="sticky-top" *ngIf="recipe && !loading">
+        <app-recipe-preview  [recipe]="recipe"></app-recipe-preview>
       </div>
     </div>
 
@@ -116,7 +124,7 @@
 </div>
 
 
-<ng-template #newChapterModal let-modal>
+<!--<ng-template #newChapterModal let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Neues Kapitel unter "{{chapter.title}}" erstellen</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -160,6 +168,6 @@
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('s')">Save</button>
   </div>
-</ng-template>
+</ng-template>-->
 
 

@@ -23,6 +23,8 @@ export class RecipesListComponent implements OnInit {
   recipes: RecipesNode;
   recipe: Recipe;
   chapter: RecipesNode;
+  loading = false;
+
   renderOutput: string;
 
   newChapterTitle = '';
@@ -83,11 +85,14 @@ export class RecipesListComponent implements OnInit {
   }
 
   openDownloadBookDialog(context, data): void {
+    context.recipe = null;
+    context.loading = false;
     const dialogRef = context.dialog.open(DialogDownloadBookComponent, {
       data
     });
 
     dialogRef.afterClosed().subscribe(result => {
+
     });
   }
 
@@ -118,6 +123,7 @@ export class RecipesListComponent implements OnInit {
   }
 
   render(): void {
+    this.loading = true;
     // const renderedBook = this.recipesService.render();
     this.recipesService.requestCompilation(this, this.openDownloadBookDialog);
 

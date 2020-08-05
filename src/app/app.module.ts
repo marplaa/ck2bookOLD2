@@ -35,6 +35,7 @@ import { DialogAddChapterComponent } from './dialog-add-chapter/dialog-add-chapt
 import { DialogAddRecipeComponent } from './dialog-add-recipe/dialog-add-recipe.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { DialogDownloadBookComponent } from './dialog-download-book/dialog-download-book.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
@@ -58,29 +59,30 @@ import { DialogDownloadBookComponent } from './dialog-download-book/dialog-downl
 
     DialogDownloadBookComponent,
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    DragDropModule,
-    NgbModule,
-    CdkTreeModule,
-    MatIconModule,
-    MatButtonModule,
-    QuillModule.forRoot(),
-    FormsModule,
-    HttpClientModule,
-    MatTableModule,
-    AppRoutingModule,
-    MatInputModule,
-    MatGridListModule,
-    MatDividerModule,
-    MatDialogModule,
-    MatMenuModule,
-    MatCheckboxModule,
-    MatCardModule,
-    MatRadioModule,
-    MatTooltipModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        DragDropModule,
+        NgbModule,
+        CdkTreeModule,
+        MatIconModule,
+        MatButtonModule,
+        QuillModule.forRoot(),
+        FormsModule,
+        HttpClientModule,
+        MatTableModule,
+        AppRoutingModule,
+        MatInputModule,
+        MatGridListModule,
+        MatDividerModule,
+        MatDialogModule,
+        MatMenuModule,
+        MatCheckboxModule,
+        MatCardModule,
+        MatRadioModule,
+        MatTooltipModule,
+        MatProgressSpinnerModule
+    ],
   entryComponents: [DialogDeleteComponent],
   providers: [],
   bootstrap: [AppComponent]
