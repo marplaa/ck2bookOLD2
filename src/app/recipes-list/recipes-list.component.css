@@ -21,6 +21,16 @@
   padding-right: 5px;
   border-radius: 5px;
   border: 1px solid lightgray;
+  background-color: #fffef5;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.right-column {
+  padding: 15px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .tree li {

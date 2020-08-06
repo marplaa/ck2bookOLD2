@@ -29,7 +29,7 @@ export const twoColTemplate = {
     '\\titleformat{\\section}[display]\n' +
     '{}\n' +
     '{}\n' +
-    '{0ex}\n' +
+    '{-2ex}\n' +
     '{\\bfseries\\Large}\n' +
     '[]' +
     '\n' +
