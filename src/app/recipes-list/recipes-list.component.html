@@ -1,6 +1,47 @@
-<div class="container">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <div class="container">
+    <a class="navbar-brand" href="#"><img src="assets/icons/chef.svg" width="50px"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Datei
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="javascript:void(0);" (click)="recipesService.downloadBook()"><mat-icon style="vertical-align: middle">get_app</mat-icon> Herunterladen</a>
+            <a class="dropdown-item" href="" (click)="recipesService.delete()"><mat-icon style="vertical-align: middle">delete</mat-icon> Löschen</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="javascript:void(0);" (click)="render()"><mat-icon style="vertical-align: middle">print</mat-icon> Kochbuch erstellen</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-  <div class="row">
+
+
+<div class="container" style="background-color: rgba(255,255,255, 0.8);;">
+
+  <!--<div class="row">
     <div class="col-12">
       <div id="navbar">
         <button mat-raised-button [matMenuTriggerFor]="menu">Menu</button>
@@ -24,10 +65,10 @@
 
 
     </div>
-  </div>
+  </div>-->
 
 
-  <div class="row">
+  <div class="row" style="padding-top: 20px; padding-bottom: 20px">
     <div class="col-8">
 
 
