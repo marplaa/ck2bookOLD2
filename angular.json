@@ -13,8 +13,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ck2book",
+            "outputPath": "docs",
             "index": "src/index.html",
+            "baseHref": "/ck2bookPage/",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",

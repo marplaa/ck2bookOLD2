@@ -29,15 +29,18 @@ export class RecipesService {
   chapter: RecipesNode = {id: '', title: '', children: [], image: '', images: chapterImages.cooking, text: '', options: standardOptions};
 
   constructor(private http: HttpClient, @Inject(LOCAL_STORAGE) private storage: StorageService, private renderer: RendererService) {
-    const loadedRecipes = JSON.parse(this.storage.get('book'));
-    if (loadedRecipes) {
-      this.recipes = loadedRecipes;
+    if (this.storage.has('book')) {
+      const loadedRecipes = JSON.parse(this.storage.get('book'));
+      if (loadedRecipes) {
+        this.recipes = loadedRecipes;
+      }
     }
+
     this.renderer.recipesService = this;
   }
 
   getRecipeFromUrl(url: string): Observable<Recipe> {
-    const reqUrl = 'http://localhost:4200/get/get_recipe_data_json_get?url=' + url;
+    const reqUrl = 'https://ck2book.coretechs.de:8000/get/get_recipe_data_json_get?url=' + url;
     return this.http.get<Recipe>(reqUrl);
   }
 
@@ -164,7 +167,8 @@ export class RecipesService {
   }
 
   requestCompilation(context, callback): void {
-    const url = 'http://localhost:4200/compile/toPdf';
+    const url = 'https://ck2book.coretechs.de:8000/compile/toPdf';
+
     // const renderer = new Renderer();
     const renderedBook = this.renderer.render(this.recipes);
     this.http.post<CompilationResponse>(url , {content: renderedBook.content, images: renderedBook.images})
