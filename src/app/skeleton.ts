@@ -118,8 +118,6 @@ export const Recipes: RecipesNode =
   {
     id: '000',
     title: 'Mein Kochbuch',
-    images: chapterImages.cooking,
-    image: 'http://localhost:4200/assets/img/chapter-images/cooking_1.jpg',
     text: '',
     isBottomChapter: false,
     children: [
@@ -127,7 +125,7 @@ export const Recipes: RecipesNode =
         id: '000-001',
         title: 'Kochen',
         images: chapterImages.cooking,
-        image: 'http://localhost:4200/assets/img/chapter-images/cooking_1.jpg',
+        image: 'https://marplaa.github.io/ck2bookPage/assets/img/chapter-images/cooking_1.jpg',
         text: '',
         isBottomChapter: false,
         children: [
@@ -136,7 +134,7 @@ export const Recipes: RecipesNode =
             text: '',
             title: 'Suppen',
             images: chapterImages.cooking,
-            image: 'http://localhost:4200/assets/img/chapter-images/cooking_1.jpg',
+            image: 'https://marplaa.github.io/ck2bookPage/assets/img/chapter-images/cooking_1.jpg',
             isBottomChapter: false,
             children: [
 
@@ -148,7 +146,7 @@ export const Recipes: RecipesNode =
             text: '',
             title: 'Eintöpfe',
             images: chapterImages.cooking,
-            image: 'http://localhost:4200/assets/img/chapter-images/cooking_1.jpg',
+            image: 'https://marplaa.github.io/ck2bookPage/assets/img/chapter-images/cooking_1.jpg',
             isBottomChapter: false,
             children: [
 
@@ -163,7 +161,7 @@ export const Recipes: RecipesNode =
         title: 'Backen',
         text: '',
         images: chapterImages.cooking,
-        image: 'http://localhost:4200/assets/img/chapter-images/cooking_1.jpg',
+        image: 'https://marplaa.github.io/ck2bookPage/assets/img/chapter-images/cooking_1.jpg',
         isBottomChapter: true,
         children: [
           recipe
@@ -176,7 +174,7 @@ export const Recipes: RecipesNode =
         title: 'Trinken',
         text: '',
         images: chapterImages.cooking,
-        image: 'http://localhost:4200/assets/img/chapter-images/cooking_1.jpg',
+        image: 'https://marplaa.github.io/ck2bookPage/assets/img/chapter-images/cooking_1.jpg',
         isBottomChapter: false,
         children: [
 
