@@ -96,7 +96,6 @@ export class RecipesService {
       this.scrapeRecipe(chapter, url);
     }
     chapter.isBottomChapter = true;
-    this.save();
   }
 
   scrapeRecipe(chapter: RecipesNode, url: string): void {
@@ -109,6 +108,7 @@ export class RecipesService {
 
         }
       );
+    this.save();
   }
 
   generateId(parent: RecipesNode, text: string): string {
