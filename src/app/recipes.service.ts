@@ -104,11 +104,11 @@ export class RecipesService {
           recipe.id = this.generateId(chapter, recipe.title);
           this.recipe = recipe;
           chapter.children.push(recipe);
+          this.save();
           // this.makeIngredientsArray(recipe);
 
         }
       );
-    this.save();
   }
 
   generateId(parent: RecipesNode, text: string): string {
