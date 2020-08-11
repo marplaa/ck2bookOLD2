@@ -18,7 +18,8 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="javascript:void(0);" (click)="recipesService.downloadBook()"><mat-icon style="vertical-align: middle">get_app</mat-icon> Herunterladen</a>
-            <a class="dropdown-item" href="" (click)="recipesService.delete()"><mat-icon style="vertical-align: middle">delete</mat-icon> Löschen</a>
+            <a class="dropdown-item" href="javascript:void(0);" (click)="openUploadModal(uploadModal)"><mat-icon style="vertical-align: middle">get_app</mat-icon> Öffnen</a>
+            <a class="dropdown-item" href="javascript:void(0);" (click)="recipesService.delete()"><mat-icon style="vertical-align: middle">delete</mat-icon> Löschen</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="javascript:void(0);" (click)="render()"><mat-icon style="vertical-align: middle">print</mat-icon> Kochbuch erstellen</a>
           </div>
@@ -59,7 +60,7 @@
             <li>
               <ul>
                 <ng-container
-                  *ngTemplateOutlet="recursiveListTmpl; context:{ recipes: recipes.children }"></ng-container>
+                  *ngTemplateOutlet="recursiveListTmpl; context:{ recipes: recipesService.recipes.children }"></ng-container>
               </ul>
             </li>
 
@@ -150,6 +151,25 @@
   </div>
 </div>
 
+<ng-template #uploadModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="fileInput">Example file input</label>
+        <input type="file" class="form-control-file" id="fileInput" (change)="upload($event.target.files)">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Fertig</button>
+  </div>
+</ng-template>
 
 <!--<ng-template #newChapterModal let-modal>
   <div class="modal-header">

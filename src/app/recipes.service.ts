@@ -166,6 +166,11 @@ export class RecipesService {
     this.save();
   }
 
+  updateRecipes(recipes: RecipesNode): void {
+    this.recipes = recipes;
+    this.save();
+  }
+
   requestCompilation(context, callback): void {
     const url = 'https://ck2book.coretechs.de:8000/compile/toPdf';
 
