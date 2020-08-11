@@ -36,6 +36,8 @@ import { DialogAddRecipeComponent } from './dialog-add-recipe/dialog-add-recipe.
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { DialogDownloadBookComponent } from './dialog-download-book/dialog-download-book.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NavigationComponent } from './navigation/navigation.component';
+
 
 
 
@@ -58,6 +60,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     DialogAddRecipeComponent,
 
     DialogDownloadBookComponent,
+
+    NavigationComponent,
   ],
     imports: [
         BrowserModule,

@@ -2,17 +2,26 @@
 
 
   <div class="row">
-    <div class="col-12">
-      <div id="navbar">
-        <button mat-flat-button color="warn"  (click)="openDeleteDialog(chapter)">Kapitel löschen
-        </button>
+    <div class="col-12" style="margin-bottom: 20px">
 
+      <mat-card>
+        <mat-card-content>
+          <div class="container">
+            <div class="row">
+              <div class="col-2">
+                <button mat-icon-button  (click)="saveAndExit()"><mat-icon>arrow_back</mat-icon></button>
+              </div>
+              <div class="col-8" style="text-align: center; font-size: x-large">
+                Kapitel bearbeiten
+              </div>
+              <div class="col-2">
+                <button class="float-right" mat-raised-button color="primary" (click)="saveAndExit()">Übernehmen</button>
+              </div>
+            </div>
+          </div>
 
-          <button mat-raised-button class="float-right" color="primary" (click)="saveAndExit()">Übernehmen</button>
-
-
-
-      </div>
+        </mat-card-content>
+      </mat-card>
 
 
     </div>
@@ -23,13 +32,14 @@
 
       <mat-card>
 
-            <mat-form-field style="width: 100%">
-              <input type="text" placeholder="Titel" matInput [(ngModel)]="chapter.title"
-                     style="font-size: 20pt; margin-bottom: 10px">
-              <mat-icon matSuffix>mode_edit</mat-icon>
-            </mat-form-field>
+        <mat-form-field style="width: 100%">
+          <input type="text" placeholder="Titel" matInput [(ngModel)]="chapter.title"
+                 style="font-size: 20pt; margin-bottom: 10px">
+          <mat-icon matSuffix>mode_edit</mat-icon>
+        </mat-form-field>
 
-        <app-image-list *ngIf="chapter.options.background === 'IMAGE'" [node]="chapter" [images]="chapterImages"></app-image-list>
+        <app-image-list *ngIf="chapter.options.background === 'IMAGE'" [node]="chapter"
+                        [images]="chapterImages"></app-image-list>
         <mat-card-content>
           <div style="height: 500px">
             <div style="height: 450px">
@@ -40,7 +50,6 @@
         </mat-card-content>
 
       </mat-card>
-
 
 
     </div>
@@ -70,6 +79,9 @@
             <mat-radio-button value="CHAPTER">Kapitelhintergrund</mat-radio-button>
             <mat-radio-button value="RECIPE">Rezeptbilder als Hintergründe</mat-radio-button>
           </mat-radio-group>
+
+          <button style="margin-top: 40px" mat-flat-button color="warn" (click)="openDeleteDialog(chapter)">Kapitel löschen
+          </button>
 
         </mat-card-content>
 
