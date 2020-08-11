@@ -13,6 +13,7 @@ import {DialogAddRecipeComponent} from '../dialog-add-recipe/dialog-add-recipe.c
 import {DialogAddChapterComponent} from '../dialog-add-chapter/dialog-add-chapter.component';
 import {DialogDownloadBookComponent} from '../dialog-download-book/dialog-download-book.component';
 
+
 @Component({
   selector: 'app-recipes-list',
   templateUrl: './recipes-list.component.html',
@@ -20,7 +21,7 @@ import {DialogDownloadBookComponent} from '../dialog-download-book/dialog-downlo
 })
 export class RecipesListComponent implements OnInit {
 
-  recipes: RecipesNode;
+  // recipes: RecipesNode;
   recipe: Recipe;
   chapter: RecipesNode;
   loading = false;
@@ -29,6 +30,7 @@ export class RecipesListComponent implements OnInit {
 
   newChapterTitle = '';
   newRecipeUrl: '';
+  private test: any;
 
 
   constructor(public recipesService: RecipesService,
@@ -37,7 +39,7 @@ export class RecipesListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.recipes = this.recipesService.recipes;
+    // this.recipes = this.recipesService.recipes;
   }
 
 
@@ -108,6 +110,34 @@ export class RecipesListComponent implements OnInit {
         this.recipesService.addChapter(this.chapter, result);
       }
     });
+  }
+
+  openUploadModal(content): void {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      console.log('Closed with: ${result}');
+    }, (reason) => {
+    });
+  }
+
+
+  upload(files: FileList): void {
+    const fr = new FileReader();
+    fr.onload = (e) => {
+      const lines = e.target.result;
+      if (typeof lines === 'string') {
+        this.recipesService.updateRecipes(JSON.parse(lines));
+      }// this.receivedText;
+    };
+
+    fr.readAsText(files[0]);
+  }
+
+  receivedText(e): void {
+    const lines = e.target.result;
+    console.log(JSON.parse(lines));
+    console.log('in receivedText');
+    this.test = JSON.parse(lines);
+    this.recipesService.updateRecipes(JSON.parse(lines));
   }
 
   isRecipe(node: RecipesNode): boolean {
